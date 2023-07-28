@@ -1,6 +1,9 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
+.cls-1 { fill: var(--primaryColor); }
+.cls-2 { fill: var(--secondaryColor); }
+.cls-3 { opacity: 0; }
 
 main {
     width: calc(100% - 40px);
@@ -22,7 +25,7 @@ section {
     overflow-y: hidden;
     display: flex;
     align-items: flex-end;
-    background: rgb(29, 29, 29);
+    background: var(--shipBackground);
 }
 
 figure {
@@ -65,16 +68,16 @@ figure {
 /* ============================================== */
 
 
-.ship .containers {
+.ship .vaults {
     width: 70%;
     height: 13.4em;
-    background: linear-gradient(to bottom, #f3f3f3 50%, #31b30a 0);
+    background: linear-gradient(to bottom, var(--primaryColor) 50%, var(--secondaryColor) 0);
     column-gap: 5px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
-.container {
+.vault {
     width: 100%;
     /* min-width: 100px; */
     height: 90%;
@@ -93,31 +96,30 @@ figure {
     /* overflow: hidden; */
 }
 
-.grua {
+.crane {
     content: '';
-    width: 50px;
-    height: 60px;
-    clip-path: polygon(0% 0%, 20% 0%, 20% 20%, 40% 20%, 40% 30%, 100% 0%, 100% 1%, 40% 31%, 40% 45%, 100% 2%, 100% 3%, 40% 46%, 40% 100%, 0% 100%);
-    /* clip-path: polygon(0% 0%, 20% 0%, 20% 20%, 40% 20%, 40% 30%, 100% 66%, 100% 67%, 40% 31%, 40% 45%, 100% 68%, 100% 69%, 40% 46%, 40% 100%, 0% 100%); */
-    background: #f3f3f3;
+    width: 70px;
+    height: 63px;
+    clip-path: polygon(0% 0%, 15% 0%, 15% 20%, 40% 20%, 40% 30%, 100% 0%, 100% 100%, 99% 100%, 99% 1%, 100% 0%, 100% 1%, 40% 31%, 40% 45%, 100% 2%, 100% 3%, 40% 46%, 40% 100%, 0% 100%);
+    background: var(--primaryColor);
     position: absolute;
-    top: -67px;
+    top: -69px;
     left: 10%;
 }
 
-@keyframes moverGrua {
+@keyframes moveCrane {
     0% {
-        clip-path: polygon(0% 0%, 20% 0%, 20% 20%, 40% 20%, 40% 30%, 100% 0%, 100% 1%, 40% 31%, 40% 45%, 100% 2%, 100% 3%, 40% 46%, 40% 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 15% 0%, 15% 20%, 40% 20%, 40% 30%, 100% 0%, 100% 100%, 99% 100%, 99% 1%, 100% 0%, 100% 1%, 40% 31%, 40% 45%, 100% 2%, 100% 3%, 40% 46%, 40% 100%, 0% 100%);
     }
     50% {
-        clip-path: polygon(0% 0%, 20% 0%, 20% 20%, 40% 20%, 40% 30%, 100% 66%, 100% 67%, 40% 31%, 40% 45%, 100% 68%, 100% 69%, 40% 46%, 40% 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 15% 0%, 15% 20%, 40% 20%, 40% 30%, 100% 66%, 100% 100%, 99% 100%, 99% 67%, 100% 66%, 100% 67%, 40% 31%, 40% 45%, 100% 68%, 100% 69%, 40% 46%, 40% 100%, 0% 100%);
     }
     100% {
-        clip-path: polygon(0% 0%, 20% 0%, 20% 20%, 40% 20%, 40% 30%, 100% 0%, 100% 1%, 40% 31%, 40% 45%, 100% 2%, 100% 3%, 40% 46%, 40% 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 15% 0%, 15% 20%, 40% 20%, 40% 30%, 100% 0%, 100% 100%, 99% 100%, 99% 1%, 100% 0%, 100% 1%, 40% 31%, 40% 45%, 100% 2%, 100% 3%, 40% 46%, 40% 100%, 0% 100%);
     }
 }
 
-.containerInfo {
+.vaultInfo {
     width: 150px;
     height: auto;
     background: transparent;
@@ -129,16 +131,16 @@ figure {
     opacity: 0;
     transform: translateY(130%);
     font-weight: 400;
-    background: #31b30ad6;
+    background: var(--secondaryColorO);
     z-index: 1;
     transition: .4s all ease;
 }
-.containerInfo::after {
+.vaultInfo::after {
     content: '';
     width: 0px;
     height: 0px;
-    border-bottom: 10px solid #31b30ab6;
-    border-right: 10px solid #31b30ab6;
+    border-bottom: 10px solid var(--secondaryColorO);
+    border-right: 10px solid var(--secondaryColorO);
     border-top: 10px solid transparent;
     border-left: 10px solid transparent;
     position: absolute;
@@ -149,9 +151,9 @@ figure {
     transform: rotate(45deg);
 }
 
-.container:hover .containerInfo {
+.vault:hover .vaultInfo {
     transform: translateY(100%);
-    background: #31b30ad6;
+    background: var(--secondaryColorO);
     box-shadow: 0 1px 4px 1px #2f2f2fa1;
                 /* inset 0px 1px 3px #ffffff65; */
     opacity: 1;

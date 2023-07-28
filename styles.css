@@ -22,6 +22,7 @@ section {
     overflow-y: hidden;
     display: flex;
     align-items: flex-end;
+    background: rgb(29, 29, 29);
 }
 
 figure {
@@ -64,11 +65,10 @@ figure {
 /* ============================================== */
 
 
-
 .ship .containers {
     width: 70%;
     height: 13.4em;
-    background: linear-gradient(to bottom, #111111 50%, #253a87 0);
+    background: linear-gradient(to bottom, #f3f3f3 50%, #31b30a 0);
     column-gap: 5px;
     display: flex;
     justify-content: center;
@@ -93,6 +93,30 @@ figure {
     /* overflow: hidden; */
 }
 
+.grua {
+    content: '';
+    width: 50px;
+    height: 60px;
+    clip-path: polygon(0% 0%, 20% 0%, 20% 20%, 40% 20%, 40% 30%, 100% 0%, 100% 1%, 40% 31%, 40% 45%, 100% 2%, 100% 3%, 40% 46%, 40% 100%, 0% 100%);
+    /* clip-path: polygon(0% 0%, 20% 0%, 20% 20%, 40% 20%, 40% 30%, 100% 66%, 100% 67%, 40% 31%, 40% 45%, 100% 68%, 100% 69%, 40% 46%, 40% 100%, 0% 100%); */
+    background: #f3f3f3;
+    position: absolute;
+    top: -67px;
+    left: 10%;
+}
+
+@keyframes moverGrua {
+    0% {
+        clip-path: polygon(0% 0%, 20% 0%, 20% 20%, 40% 20%, 40% 30%, 100% 0%, 100% 1%, 40% 31%, 40% 45%, 100% 2%, 100% 3%, 40% 46%, 40% 100%, 0% 100%);
+    }
+    50% {
+        clip-path: polygon(0% 0%, 20% 0%, 20% 20%, 40% 20%, 40% 30%, 100% 66%, 100% 67%, 40% 31%, 40% 45%, 100% 68%, 100% 69%, 40% 46%, 40% 100%, 0% 100%);
+    }
+    100% {
+        clip-path: polygon(0% 0%, 20% 0%, 20% 20%, 40% 20%, 40% 30%, 100% 0%, 100% 1%, 40% 31%, 40% 45%, 100% 2%, 100% 3%, 40% 46%, 40% 100%, 0% 100%);
+    }
+}
+
 .containerInfo {
     width: 150px;
     height: auto;
@@ -105,7 +129,7 @@ figure {
     opacity: 0;
     transform: translateY(130%);
     font-weight: 400;
-    background: #253a87d6;
+    background: #31b30ad6;
     z-index: 1;
     transition: .4s all ease;
 }
@@ -113,8 +137,8 @@ figure {
     content: '';
     width: 0px;
     height: 0px;
-    border-bottom: 10px solid #253a87b6;
-    border-right: 10px solid #253a87b6;
+    border-bottom: 10px solid #31b30ab6;
+    border-right: 10px solid #31b30ab6;
     border-top: 10px solid transparent;
     border-left: 10px solid transparent;
     position: absolute;
@@ -127,7 +151,7 @@ figure {
 
 .container:hover .containerInfo {
     transform: translateY(100%);
-    background: #253a87d6;
+    background: #31b30ad6;
     box-shadow: 0 1px 4px 1px #2f2f2fa1;
                 /* inset 0px 1px 3px #ffffff65; */
     opacity: 1;

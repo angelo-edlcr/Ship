@@ -16,18 +16,18 @@
                             <defs>
                                 <style>
                                     .cls-1 {
-                                    fill: #111;
+                                    fill: #f3f3f3;
                                     }
                             
                                     .cls-2 {
-                                    fill: #253a87;
+                                    fill: #31b30a;
                                     }
                                 </style>
                             </defs>
-                            <rect class="cls-1" x="95.19" y="640.26" width="17.24" height="10.64"/>
-                            <path class="cls-1" d="m108.56,691.13h-26.74c-.62,0-1.09-.57-.96-1.18l14.33-68.14,14.33,68.14c.13.61-.34,1.18-.96,1.18Z"/>
-                            <path class="cls-1" d="m108.6,597.69h-26.81c-.6,0-1.05.55-.93,1.14l14.33,68.18,14.33-68.18c.12-.59-.33-1.14-.93-1.14Z"/>
-                            <path class="cls-1" d="m66.37,691.13H9.43c-1.84,0-3.33-1.49-3.33-3.33v-79.67c0-1.84,1.49-3.33,3.33-3.33h49.02v-36.74h11.23v119.74c0,1.83-1.49,3.32-3.32,3.32Z"/>
+                            <rect class="cls-2" x="95.19" y="640.26" width="17.24" height="10.64"/>
+                            <path class="cls-2" d="m108.56,691.13h-26.74c-.62,0-1.09-.57-.96-1.18l14.33-68.14,14.33,68.14c.13.61-.34,1.18-.96,1.18Z"/>
+                            <path class="cls-2" d="m108.6,597.69h-26.81c-.6,0-1.05.55-.93,1.14l14.33,68.18,14.33-68.18c.12-.59-.33-1.14-.93-1.14Z"/>
+                            <path class="cls-2" d="m66.37,691.13H9.43c-1.84,0-3.33-1.49-3.33-3.33v-79.67c0-1.84,1.49-3.33,3.33-3.33h49.02v-36.74h11.23v119.74c0,1.83-1.49,3.32-3.32,3.32Z"/>
                             <path class="cls-2" d="m134.43,717.63h107.68s0-513.11,0-513.11H67.14s0,37.48,0,37.48H0v259.32c0,35.21,22.88,68.75,67.14,68.97h45.29v122.63c0,13.65,9.85,24.71,22,24.71Z"/>
                             <path class="cls-1" d="m242.11,461.07V204.51s-174.97,0-174.97,0v37.48H0v219.08h242.11Z"/>
                             <rect class="cls-1" x="67.14" y="55" width="174.97" height="149.52"/>
@@ -44,11 +44,11 @@
                                 }
 
                                 .cls-22 {
-                                    fill: #111;
+                                    fill: #f3f3f3;
                                 }
 
                                 .cls-32 {
-                                    fill: #253a87;
+                                    fill: #31b30a;
                                 }
                                 </style>
                             </defs>
@@ -75,13 +75,11 @@
     let containers = document.getElementById("containers");
 
     var data = [
-        cont1 = [name = 'CONT 1', total = 6750, existence = 3462], 
-        cont2 = [name = 'CONT 2', total = 93500, existence = 68300],
-        cont3 = [name = 'CONT 3', total = 13678, existence = 8925],
-        cont4 = [name = 'CONT 4', total = 72500, existence = 68300],
-        cont5 = [name = 'CONT 3', total = 13678, existence = 8925],
-        cont6 = [name = 'CONT 4', total = 72500, existence = 68300],
-        cont7    = [name = 'CONT 5', total = 15678, existence = 0]
+        cont1 = [name = 'BODEGA 1', total = 6750, existence = 3462, working = true], 
+        cont2 = [name = 'BODEGA 2', total = 93500, existence = 68300, working = true],
+        cont3 = [name = 'BODEGA 3', total = 13678, existence = 8925, working = false],
+        cont4 = [name = 'BODEGA 4', total = 72500, existence = 68300, working = true],
+        cont5 = [name = 'BODEGA 3', total = 13678, existence = 8925, working = false]
     ];
 
     data.forEach(cont => {
@@ -89,6 +87,7 @@
         var name = cont[0].toString();
         var total = cont[1];
         var existence = cont[2];
+        var working = cont[3];
         var percent = ((existence * 100) / total).toFixed(2);
 
         // ============================================
@@ -101,6 +100,15 @@
             "rgb(118, 118, 118)" : "linear-gradient(to top, #c68a5f "+ percent +"%, rgb(118, 118, 118) 0%)";
 
         container.innerHTML = `<br /><b>${name}</b>`;
+        console.log(container);
+
+
+        var grua = document.createElement("div");
+        grua.classList.add("grua");
+
+        if (working === true) {
+            grua.style.animation = 'moverGrua 5s infinite';
+        }
 
 
         // ===============================================
@@ -111,6 +119,7 @@
             <b>E:</b> ${(percent > 0) ? existence.toLocaleString('es-US') : 'EMPTY'}`;
         
         container.append(containerInfo);
+        container.append(grua);
         containers.append(container);
     })
 
